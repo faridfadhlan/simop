@@ -26,7 +26,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="accordion-toggle{{ Request::is('pekerjaan*')?' menu-open':'' }}" href="#">
+                        <a class="accordion-toggle{{(
+                                Request::is('pekerjaan*')||
+                                Request::is('kegiatan*')
+                                ?' menu-open':'' 
+                            )
+                        }}" href="#">
                             <span class="glyphicons glyphicons-fire"></span>
                             <span class="sidebar-title">Pekerjaan</span>
                             <span class="caret"></span>
@@ -41,8 +46,8 @@
                                 <a href="admin_plugins-modals.html">
                                     <span class="glyphicons glyphicons-show_big_thumbnails"></span> Master Pekerjaan </a>
                             </li>
-                            <li>
-                                <a href="admin_plugins-dock.html">
+                            <li{!! Request::is('kegiatan*')?'  class="active"':'' !!}>
+                                <a href="{{ URL::to('kegiatan') }}">
                                     <span class="glyphicons glyphicons-sampler"></span> Master Kegiatan </a>
                             </li>
                             <li>

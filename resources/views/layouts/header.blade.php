@@ -10,7 +10,7 @@
         <!-- Start: Header -->
         <header class="navbar navbar-fixed-top bg-light">
             <div class="navbar-branding">
-                <a class="navbar-brand" href="dashboard.html"> <b>SIMMOP</b>BPS </a>
+                <a class="navbar-brand" href="dashboard.html"> <!--<b>SIMMOP</b>BPS--> </a>
                 <span id="toggle_sidemenu_l" class="glyphicons glyphicons-show_lines"></span>
                 <ul class="nav navbar-nav pull-right hidden">
                     <li>
@@ -73,7 +73,7 @@
                 <li class="ph10 pv20 hidden-xs"> <i class="fa fa-circle text-tp fs8"></i>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64 mr15">
+                    <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="{{ asset('assets/img/avatars/1.jpg') }}" alt="avatar" class="mw30 br64 mr15">
                         <span>{{ Auth::user()->nama }}</span>
                         <span class="caret caret-tp hidden-xs"></span>
                     </a>
@@ -83,12 +83,6 @@
                             <a href="#" class="fw600 p12">
                                 <span class="fa fa-envelope pr5"></span> Messages
                                 <span class="pull-right lh20 h-20 label label-warning label-sm">2</span>
-                            </a>
-                        </li>
-                        <li class="br-t of-h">
-                            <a href="#" class="fw600 p12">
-                                <span class="fa fa-user pr5"></span> Friends
-                                <span class="pull-right lh20 h-20 label label-warning label-sm">6</span>
                             </a>
                         </li>
                         <li class="br-t of-h">

@@ -29,20 +29,24 @@
 
 
 Route::group(['middleware' => ['web']], function () {
-	Route::get('pekerjaan', 'PekerjaanController@index');
-	Route::get('dashboard', 'DashboardController@index');
+    Route::get('pekerjaan', 'PekerjaanController@index');
+    Route::get('kegiatan', 'KegiatanController@index');
+    Route::get('kegiatan/tambah', 'KegiatanController@tambah');
+    Route::post('kegiatan/simpan', 'KegiatanController@simpan');
+    Route::get('pekerjaan/tambah', 'PekerjaanController@tambah');
+    Route::get('dashboard', 'DashboardController@index');
     Route::get('auth/login', 'Auth\AuthController@getLogin');
-	Route::post('auth/login', 'Auth\AuthController@postLogin');
-	Route::get('auth/logout', 'Auth\AuthController@getLogout');
-	Route::get('auth/register', 'Auth\AuthController@getRegister');
-	Route::post('auth/register', 'Auth\AuthController@postRegister');
-	Route::get('/', function () {	
-		if(Auth::check()) return redirect('dashboard');
-		else return redirect('auth/login');
-	});
-	Route::get('/auth/logout', function() {
-		Auth::logout();
-		return redirect('/');
-	});
+    Route::post('auth/login', 'Auth\AuthController@postLogin');
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::get('auth/register', 'Auth\AuthController@getRegister');
+    Route::post('auth/register', 'Auth\AuthController@postRegister');
+    Route::get('/', function () {	
+            if(Auth::check()) return redirect('dashboard');
+            else return redirect('auth/login');
+    });
+    Route::get('/auth/logout', function() {
+            Auth::logout();
+            return redirect('/');
+    });
 });
 

@@ -9,15 +9,17 @@
     <meta name="description" content="AdminDesigns - SHARED ON THEMELOCK.COM">
     <meta name="author" content="AdminDesigns">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/icomoon/icomoon.css') }}">
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
+    @yield('script_atas')
 
 </head>
 @if(Auth::check())
