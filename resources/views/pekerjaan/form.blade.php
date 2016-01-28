@@ -2,7 +2,7 @@
     <div class="form-group{{ $errors->has('kegiatan_id')?' has-error':'' }}">
         {{ Form::label('kegiatan_id', 'Kegiatan', array('class' => 'col-lg-2 control-label')) }}
         <div class="col-lg-8">
-            {{ Form::select('kegiatan_id', $kegiatans, $pekerjaan->kegiatan_id, ['placeholder' => 'Kegiatan...', 'class'=>'form-control']) }}
+            {{ Form::select('kegiatan_id', $kegiatans, $pekerjaan->kegiatan_id, ['placeholder' => 'Pilih Kegiatan...', 'class'=>'form-control']) }}
         </div>
     </div>
     <div class="form-group{{ $errors->has('nama')?' has-error':'' }}">
@@ -14,7 +14,7 @@
     <div class="form-group{{ $errors->has('tgl_mulai')?' has-error':'' }}">
         {{ Form::label('tgl_mulai', 'Tanggal Mulai', array('class' => 'col-lg-2 control-label')) }}
         <div class="col-lg-3 ">
-            <div class="input-group date" id="datetimepicker2">
+            <div class="input-group date datetimepicker">
             <span class="input-group-addon cursor"><i class="fa fa-calendar"></i></span>
             {{ Form::text('tgl_mulai', $value=$pekerjaan->tgl_mulai, ['placeholder' => 'Tanggal Mulai...', 'class'=>'form-control']) }}
             </div>
@@ -23,7 +23,10 @@
     <div class="form-group{{ $errors->has('tgl_selesai')?' has-error':'' }}">
         {{ Form::label('tgl_selesai', 'Tanggal Selesai', array('class' => 'col-lg-2 control-label')) }}
         <div class="col-lg-3">
+            <div class="input-group date datetimepicker">
+            <span class="input-group-addon cursor"><i class="fa fa-calendar"></i></span>
             {{ Form::text('tgl_selesai', $value=$pekerjaan->tgl_selesai, ['placeholder' => 'Tanggal Selesai...', 'class'=>'form-control']) }}
+            </div>
         </div>
     </div>
     <div class="form-group{{ $errors->has('unit_target_id')?' has-error':'' }}">

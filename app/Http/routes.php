@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('kegiatan/tambah', 'KegiatanController@tambah');
     Route::post('kegiatan/simpan', 'KegiatanController@simpan');
     Route::get('pekerjaan/tambah', 'PekerjaanController@tambah');
+    Route::post('pekerjaan/simpan', 'PekerjaanController@simpan');
     Route::get('dashboard', 'DashboardController@index');
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');

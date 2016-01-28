@@ -6,8 +6,9 @@
 
     <!-- Bootstrap -->
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
-
+    
     @yield('script_bawah')
+    
     
     <!-- END: PAGE SCRIPTS -->
 

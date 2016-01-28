@@ -3,6 +3,10 @@
 SIMMOP - Tambah Pekerjaan
 @endsection
 
+@section('script_atas')
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/plugins/datepicker/css/bootstrap-datetimepicker.min.css') }}"
+@endsection
+
 
 @section('content')
 
@@ -28,16 +32,16 @@ SIMMOP - Tambah Pekerjaan
         </div>
         <div class="topbar-right">
 
-            <div class="ml15 ib va-m" id="toggle_sidemenu_r">
-                <a href="#" class="pl5"> <i class="fa fa-sign-in fs22 text-primary"></i>
-                    <span class="badge badge-hero badge-danger">3</span>
-                </a>
-            </div>
+            <div class="topbar-right">
+                    <a href="{{ URL::to('kegiatan/tambah') }}" class="btn btn-default btn-sm light fw600 ml10"><span class="fa fa-plus pr5"></span> Tambah Kegiatan </a>
+                    
+                </div>
         </div>
     </header>
     <!-- End: Topbar -->
 
     <div id="content">
+        
         <div class="row">
 
             <div class="col-md-12">
@@ -72,4 +76,21 @@ SIMMOP - Tambah Pekerjaan
     </div>
 </section>
 <!-- End: Content -->
+@endsection
+
+@section('script_bawah')
+<script type="text/javascript" src="{{ asset('vendor/plugins/datepicker/js/globalize.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/plugins/datepicker/js/moment.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/plugins/datepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/utility/utility.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+            // Init datetimepicker - fields
+            Core.init();
+            $('.datetimepicker').datetimepicker({
+                format:'YYYY-MM-DD'
+            });
+        }); 
+</script>
 @endsection

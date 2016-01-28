@@ -46,7 +46,7 @@
                                 <a href="admin_plugins-modals.html">
                                     <span class="glyphicons glyphicons-show_big_thumbnails"></span> Master Pekerjaan </a>
                             </li>
-                            <li{!! Request::is('kegiatan*')?'  class="active"':'' !!}>
+                            <li{!! (Request::is('kegiatan*')||Request::is('pekerjaan*'))?'  class="active"':'' !!}>
                                 <a href="{{ URL::to('kegiatan') }}">
                                     <span class="glyphicons glyphicons-sampler"></span> Master Kegiatan </a>
                             </li>

@@ -28,11 +28,9 @@ SIMMOP - Tambah Kegiatan
         </div>
         <div class="topbar-right">
 
-            <div class="ml15 ib va-m" id="toggle_sidemenu_r">
-                <a href="#" class="pl5"> <i class="fa fa-sign-in fs22 text-primary"></i>
-                    <span class="badge badge-hero badge-danger">3</span>
-                </a>
-            </div>
+            <div class="topbar-right">
+                    <a href="{{ URL::to('pekerjaan/tambah') }}" class="btn btn-default btn-sm light fw600 ml10"><span class="fa fa-plus pr5"></span> Tambah Pekerjaan </a>
+                </div>
         </div>
     </header>
     <!-- End: Topbar -->
