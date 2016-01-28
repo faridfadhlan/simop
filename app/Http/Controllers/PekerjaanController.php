@@ -16,6 +16,7 @@ class PekerjaanController extends Controller
     }
     
     public function tambah() {
+        $pekerjaans = \App\Pekerjaan::lists('nama', 'id');
         $pekerjaan = new \App\Pekerjaan;
         $kegiatans = \App\Kegiatan::lists('nama', 'id');
         $unit_targets = \App\UnitTarget::lists('nama', 'id');
@@ -24,6 +25,7 @@ class PekerjaanController extends Controller
             'kegiatans'=>$kegiatans, 
             'unit_targets'=>$unit_targets,
             'pekerjaan'=>$pekerjaan,
+            'pekerjaans'=>$pekerjaans
         ]);
     }
     
@@ -39,6 +41,7 @@ class PekerjaanController extends Controller
             'tgl_selesai'=>'required',
             'jumlah_target'=>'required',
             'unt_target_id'=>'reqired',
+            'before_id'=>'required'
         ], $messages);
 
         if ($validator->fails()) {
@@ -55,6 +58,7 @@ class PekerjaanController extends Controller
         $pekerjaan->user_creator_id = Auth::user()->id;
         $pekerjaan->user_pj_id = Auth::user()->id;
         $pekerjaan->kegiatan_id = $request->input('kegiatan_id');
+        $pekerjaan->before_id = $request->input('before_id');
         $pekerjaan->save();
         return redirect('kegiatan');
     }

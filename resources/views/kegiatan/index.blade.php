@@ -106,17 +106,20 @@ SIMMOP - Daftar Kegiatan
     
     <script src="{{ asset('plugins/dhtmlxgantt/dhtmlxgantt.js') }}" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset('plugins/dhtmlxgantt/dhtmlxgantt.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
-    <script type="text/javascript" src="{{ asset('plugins/dhtmlxgantt/testdata.js') }}"></script>
+    <script src="{{ asset('plugins/dhtmlxgantt/ext/dhtmlxgantt_tooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::to('kegiatan/data_gantt') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/utility/utility.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Core.init();
+            gantt.config.readonly = true;
             gantt.config.columns =  [
                 {name:"text",       label:"Kegiatan / Pekerjaan",  tree:true, width: "300"},
                 {name:"progress",   label:"Progres",   align: "center" },
                 {name:"duration",   label:"Durasi",   align: "center" }
             ];
+            gantt.config.scale_unit = "week"; 
             gantt.init("mygantt");
             gantt.parse(demo_tasks);
         });

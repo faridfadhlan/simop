@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-
+use DB;
 class KegiatanController extends Controller
 {
     public function index(){
@@ -47,5 +47,42 @@ class KegiatanController extends Controller
         $kegiatan->save();
         return redirect('kegiatan');
         
+    }
+    
+    public function data_gantt() {
+        $kegiatan = DB::select(
+            "SELECT
+                CONCAT('1000',k.id) as id,
+                k.nama as text,
+                (CASE WHEN (p.tgl_mulai IS NULL) 
+                THEN
+                    DATE_FORMAT( NOW() , '%d-%m-%Y' )
+                ELSE
+                    DATE_FORMAT( MIN( p.tgl_mulai ) , '%d-%m-%Y' )
+                END) AS start_date,
+                datediff( max( p.tgl_selesai ) , min( p.tgl_mulai ) ) AS duration,
+                0.5 AS progress,
+                'true' AS open,
+                NULL as parent
+            FROM
+                kegiatan k
+                INNER JOIN pekerjaan p
+                ON k.id = p.kegiatan_id
+            GROUP BY
+                k.id
+            
+            UNION
+            SELECT
+                id,
+                nama,
+                DATE_FORMAT( tgl_mulai , '%d-%m-%Y' ) as start_date,
+                datediff(tgl_selesai, tgl_mulai) as duration,
+                0.5 as progress,
+                NULL AS open,
+                kegiatan_id as parent
+            FROM
+                pekerjaan
+        ");
+        return view('kegiatan.data_gantt', ['kegiatan'=>$kegiatan]);
     }
 }

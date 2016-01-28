@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('kegiatan', 'KegiatanController@index');
     Route::get('kegiatan/tambah', 'KegiatanController@tambah');
     Route::post('kegiatan/simpan', 'KegiatanController@simpan');
+    Route::get('kegiatan/data_gantt', 'KegiatanController@data_gantt');
     Route::get('pekerjaan/tambah', 'PekerjaanController@tambah');
     Route::post('pekerjaan/simpan', 'PekerjaanController@simpan');
     Route::get('dashboard', 'DashboardController@index');

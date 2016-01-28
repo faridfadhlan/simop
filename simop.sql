@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Jan 2016 pada 04.15
--- Versi Server: 10.1.9-MariaDB
+-- Generation Time: Jan 28, 2016 at 10:08 AM
+-- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bidang`
+-- Table structure for table `bidang`
 --
 
 CREATE TABLE `bidang` (
@@ -32,7 +32,7 @@ CREATE TABLE `bidang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `bidang`
+-- Dumping data for table `bidang`
 --
 
 INSERT INTO `bidang` (`id`, `nama_bidang`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `bidang` (`id`, `nama_bidang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `catatan`
+-- Table structure for table `catatan`
 --
 
 CREATE TABLE `catatan` (
@@ -62,7 +62,7 @@ CREATE TABLE `catatan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_waktu`
+-- Table structure for table `jenis_waktu`
 --
 
 CREATE TABLE `jenis_waktu` (
@@ -71,7 +71,7 @@ CREATE TABLE `jenis_waktu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jenis_waktu`
+-- Dumping data for table `jenis_waktu`
 --
 
 INSERT INTO `jenis_waktu` (`id`, `jenis_waktu`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `jenis_waktu` (`id`, `jenis_waktu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kegiatan`
+-- Table structure for table `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
@@ -97,7 +97,7 @@ CREATE TABLE `kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kegiatan`
+-- Dumping data for table `kegiatan`
 --
 
 INSERT INTO `kegiatan` (`id`, `nama`, `jenis_waktu_id`, `nilai_waktu`, `tahun`) VALUES
@@ -110,7 +110,7 @@ INSERT INTO `kegiatan` (`id`, `nama`, `jenis_waktu_id`, `nilai_waktu`, `tahun`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `level`
+-- Table structure for table `level`
 --
 
 CREATE TABLE `level` (
@@ -119,7 +119,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `level`
+-- Dumping data for table `level`
 --
 
 INSERT INTO `level` (`id`, `nama_level`) VALUES
@@ -132,7 +132,7 @@ INSERT INTO `level` (`id`, `nama_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pekerjaan`
+-- Table structure for table `pekerjaan`
 --
 
 CREATE TABLE `pekerjaan` (
@@ -145,22 +145,25 @@ CREATE TABLE `pekerjaan` (
   `unit_target_id` int(11) DEFAULT NULL,
   `user_creator_id` int(11) DEFAULT NULL,
   `user_pj_id` int(11) DEFAULT NULL,
-  `kegiatan_id` int(11) DEFAULT NULL
+  `kegiatan_id` int(11) DEFAULT NULL,
+  `before_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pekerjaan`
+-- Dumping data for table `pekerjaan`
 --
 
-INSERT INTO `pekerjaan` (`id`, `nama`, `tgl_mulai`, `tgl_selesai`, `jumlah_target`, `keterangan`, `unit_target_id`, `user_creator_id`, `user_pj_id`, `kegiatan_id`) VALUES
-(1, 'Listing Ubinan Subround I Tahun 2016', '2016-01-01', '2016-01-31', 120, NULL, 1, 8, 8, 2),
-(2, 'Monitoring Entri Pemutakhiran Susenas Semester I Tahun 2016', '2016-01-05', '2016-01-30', 250, NULL, 1, 17, 17, 3),
-(3, 'Memasang Rak Server', '2016-01-25', '2016-02-01', 1, NULL, NULL, 18, 18, 5);
+INSERT INTO `pekerjaan` (`id`, `nama`, `tgl_mulai`, `tgl_selesai`, `jumlah_target`, `keterangan`, `unit_target_id`, `user_creator_id`, `user_pj_id`, `kegiatan_id`, `before_id`) VALUES
+(1, 'Listing Ubinan Subround I Tahun 2016', '2016-01-01', '2016-01-31', 120, NULL, 1, 8, 8, 2, NULL),
+(2, 'Monitoring Entri Pemutakhiran Susenas Semester I Tahun 2016', '2016-01-05', '2016-01-30', 250, NULL, 1, 17, 17, 3, NULL),
+(3, 'Memasang Rak Server', '2016-01-25', '2016-02-01', 1, NULL, NULL, 18, 18, 5, NULL),
+(4, 'Entri Hasil Listing Ubinan Subround I Tahun 2016', '2016-01-28', '2016-02-01', 120, NULL, 1, 8, 8, 2, 1),
+(5, 'Memasang PC Server ke dalam rak', '2016-02-01', '2016-02-03', 1, NULL, 5, 26, 26, 5, 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelaksana_pekerjaan`
+-- Table structure for table `pelaksana_pekerjaan`
 --
 
 CREATE TABLE `pelaksana_pekerjaan` (
@@ -175,7 +178,7 @@ CREATE TABLE `pelaksana_pekerjaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pelaksana_pekerjaan`
+-- Dumping data for table `pelaksana_pekerjaan`
 --
 
 INSERT INTO `pelaksana_pekerjaan` (`id`, `tgl_alokasi`, `jumlah_target`, `keterangan`, `kualitas`, `pekerjaan_id`, `user_pelaksana_id`, `user_pengalokasi_id`) VALUES
@@ -184,7 +187,7 @@ INSERT INTO `pelaksana_pekerjaan` (`id`, `tgl_alokasi`, `jumlah_target`, `ketera
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `progres_pelaksana_pekerjaan`
+-- Table structure for table `progres_pelaksana_pekerjaan`
 --
 
 CREATE TABLE `progres_pelaksana_pekerjaan` (
@@ -197,7 +200,7 @@ CREATE TABLE `progres_pelaksana_pekerjaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `progres_pelaksana_pekerjaan`
+-- Dumping data for table `progres_pelaksana_pekerjaan`
 --
 
 INSERT INTO `progres_pelaksana_pekerjaan` (`id`, `persentase`, `jumlah_realisasi`, `pelaksana_pekerjaan_id`, `create_time`, `update_time`) VALUES
@@ -206,7 +209,7 @@ INSERT INTO `progres_pelaksana_pekerjaan` (`id`, `persentase`, `jumlah_realisasi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `seksi`
+-- Table structure for table `seksi`
 --
 
 CREATE TABLE `seksi` (
@@ -216,7 +219,7 @@ CREATE TABLE `seksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `seksi`
+-- Dumping data for table `seksi`
 --
 
 INSERT INTO `seksi` (`id`, `nama_seksi`, `bidang_id`) VALUES
@@ -250,7 +253,7 @@ INSERT INTO `seksi` (`id`, `nama_seksi`, `bidang_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_target`
+-- Table structure for table `unit_target`
 --
 
 CREATE TABLE `unit_target` (
@@ -259,7 +262,7 @@ CREATE TABLE `unit_target` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit_target`
+-- Dumping data for table `unit_target`
 --
 
 INSERT INTO `unit_target` (`id`, `nama`) VALUES
@@ -272,7 +275,7 @@ INSERT INTO `unit_target` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -288,7 +291,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nip`, `nama`, `username`, `email`, `password`, `remember_token`, `seksi_id`, `level_id`) VALUES
@@ -317,7 +320,7 @@ INSERT INTO `user` (`id`, `nip`, `nama`, `username`, `email`, `password`, `remem
 (23, '195804261983021001', 'Edi Rahman Asmara S.Si, M.M', 'edi', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 23, 3),
 (24, '196603041992032001', 'Ir. Martalena M.M.', 'martalena', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 24, 3),
 (25, '197101211993121002', 'Sudiyanto S.Si., MM', 'sudiyanto', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'CfBRw3clljzEZdYyxq7qytp89HFbnpONo9dLPqZX9jYoeZon76MSSYzcSyUf', 25, 3),
-(26, '196405111992031003', 'Ir. Pitono MAP', 'pitono', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '8RnPULPnik0HJ78A4ALxDq9NHYxjqAXyXGJn1efBOSG3DC200VaS8wEek6r5', 26, 2);
+(26, '196405111992031003', 'Ir. Pitono MAP', 'pitono', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'XXRxRqq1WfEMH5MY5PtfENMgV3n0ugYaEaUMihhzypkJLtM6yA75Gok4H6dB', 26, 2);
 
 --
 -- Indexes for dumped tables
@@ -436,7 +439,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pelaksana_pekerjaan`
 --
@@ -463,24 +466,24 @@ ALTER TABLE `unit_target`
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `catatan`
+-- Constraints for table `catatan`
 --
 ALTER TABLE `catatan`
   ADD CONSTRAINT `Relationship13` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `Relationship5` FOREIGN KEY (`pekerjaan_id`) REFERENCES `pekerjaan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kegiatan`
+-- Constraints for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD CONSTRAINT `Relationship1` FOREIGN KEY (`jenis_waktu_id`) REFERENCES `jenis_waktu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pekerjaan`
+-- Constraints for table `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
   ADD CONSTRAINT `Relationship12` FOREIGN KEY (`user_creator_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -489,7 +492,7 @@ ALTER TABLE `pekerjaan`
   ADD CONSTRAINT `Relationship3` FOREIGN KEY (`unit_target_id`) REFERENCES `unit_target` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pelaksana_pekerjaan`
+-- Constraints for table `pelaksana_pekerjaan`
 --
 ALTER TABLE `pelaksana_pekerjaan`
   ADD CONSTRAINT `Relationship14` FOREIGN KEY (`pekerjaan_id`) REFERENCES `pekerjaan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -497,19 +500,19 @@ ALTER TABLE `pelaksana_pekerjaan`
   ADD CONSTRAINT `Relationship19` FOREIGN KEY (`user_pengalokasi_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `progres_pelaksana_pekerjaan`
+-- Constraints for table `progres_pelaksana_pekerjaan`
 --
 ALTER TABLE `progres_pelaksana_pekerjaan`
   ADD CONSTRAINT `Relationship16` FOREIGN KEY (`pelaksana_pekerjaan_id`) REFERENCES `pelaksana_pekerjaan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `seksi`
+-- Constraints for table `seksi`
 --
 ALTER TABLE `seksi`
   ADD CONSTRAINT `Relationship9` FOREIGN KEY (`bidang_id`) REFERENCES `bidang` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `Relationship7` FOREIGN KEY (`seksi_id`) REFERENCES `seksi` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,

@@ -15,28 +15,5 @@ var demo_tasks = {
 		{"id":15, "text":"Mengompilasi FIle Hasil Entri Pencacahan", "start_date":"02-04-2013", "duration":"5", "parent":"11", "progress": 0.2, "open": true},
 		
 		
-	],
-	"links":[
-		{"id":"1","source":"1","target":"2","type":"1"},
-		{"id":"2","source":"2","target":"3","type":"0"},
-		{"id":"3","source":"3","target":"4","type":"0"},
-		{"id":"4","source":"2","target":"5","type":"2"},
-		{"id":"5","source":"2","target":"6","type":"2"},
-		{"id":"6","source":"3","target":"7","type":"2"},
-		{"id":"7","source":"4","target":"8","type":"2"},
-		{"id":"8","source":"4","target":"9","type":"2"},
-		{"id":"9","source":"4","target":"10","type":"2"},
-		{"id":"10","source":"11","target":"12","type":"1"},
-		{"id":"11","source":"11","target":"13","type":"1"},
-		{"id":"12","source":"11","target":"14","type":"1"},
-		{"id":"13","source":"11","target":"15","type":"1"},
-		{"id":"14","source":"11","target":"16","type":"1"},
-		{"id":"15","source":"13","target":"17","type":"1"},
-		{"id":"16","source":"17","target":"18","type":"0"},
-		{"id":"17","source":"18","target":"19","type":"0"},
-		{"id":"18","source":"19","target":"20","type":"0"},
-		{"id":"19","source":"15","target":"21","type":"2"},
-		{"id":"20","source":"15","target":"22","type":"2"},
-		{"id":"21","source":"15","target":"23","type":"2"}
 	]
 };

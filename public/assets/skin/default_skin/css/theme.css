@@ -25298,3 +25298,11 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+#mygantt a.link{
+    text-decoration: none;
+}
+
+div.gantt_task_content a.link{
+    color:#fff;
+}

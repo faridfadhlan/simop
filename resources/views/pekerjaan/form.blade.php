@@ -5,6 +5,12 @@
             {{ Form::select('kegiatan_id', $kegiatans, $pekerjaan->kegiatan_id, ['placeholder' => 'Pilih Kegiatan...', 'class'=>'form-control']) }}
         </div>
     </div>
+    <div class="form-group{{ $errors->has('before_id')?' has-error':'' }}">
+        {{ Form::label('before_id', 'Pekerjaan Sebelumnya', array('class' => 'col-lg-2 control-label')) }}
+        <div class="col-lg-8">
+            {{ Form::select('before_id', $pekerjaans, $pekerjaan->before_id, ['placeholder' => 'Pilih Pekerjaan Sebelumnya...', 'class'=>'form-control']) }}
+        </div>
+    </div>
     <div class="form-group{{ $errors->has('nama')?' has-error':'' }}">
         {{ Form::label('nama', 'Nama Pekerjaan', array('class' => 'col-lg-2 control-label')) }}
         <div class="col-lg-8">
