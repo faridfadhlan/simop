@@ -3,15 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/simop/app/Http/routes.php</file>
             <file>file:/C:/xampp/htdocs/simop/app/Http/Controllers/PekerjaanController.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/pekerjaan/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simop/app/Helpers/simop_helpers.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/detail.blade.php</file>
             <file>file:/C:/xampp/htdocs/simop/app/Http/Controllers/KegiatanController.php</file>
-            <file>file:/C:/xampp/htdocs/simop/resources/views/pekerjaan/form.blade.php</file>
-            <file>file:/C:/xampp/htdocs/simop/public/assets/skin/default_skin/css/theme.css</file>
-            <file>file:/C:/xampp/htdocs/simop/app/Kegiatan.php</file>
-            <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/pekerjaan/detail.blade.php</file>
             <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/data_gantt.blade.php</file>
-            <file>file:/C:/xampp/htdocs/simop/public/plugins/dhtmlxgantt/testdata.js</file>
+            <file>file:/C:/xampp/htdocs/simop/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/simop/app/Pekerjaan.php</file>
+            <file>file:/C:/xampp/htdocs/simop/app/Kegiatan.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simop/resources/views/kegiatan/tambah.blade.php</file>
         </group>
     </open-files>
 </project-private>

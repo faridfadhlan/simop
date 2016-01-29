@@ -15,6 +15,26 @@ class PekerjaanController extends Controller
     	return view('pekerjaan.index', array('pekerjaans'=>$pekerjaans));
     }
     
+    public function detail($id) {
+        $pekerjaan = \App\Pekerjaan::findOrFail($id);
+        return view('pekerjaan.detail', ['pekerjaan'=>$pekerjaan]);
+    }
+    
+    public function edit($id) {
+        $pekerjaans = \App\Pekerjaan::lists('nama', 'id');
+        $pekerjaan = \App\Pekerjaan::findOrFail($id);
+        $kegiatans = \App\Kegiatan::lists('nama', 'id');
+        $unit_targets = \App\UnitTarget::lists('nama', 'id');
+        
+        return view('pekerjaan.edit', [
+            'kegiatans'=>$kegiatans, 
+            'unit_targets'=>$unit_targets,
+            'pekerjaan'=>$pekerjaan,
+            'pekerjaans'=>$pekerjaans
+        ]);
+    }
+
+
     public function tambah() {
         $pekerjaans = \App\Pekerjaan::lists('nama', 'id');
         $pekerjaan = new \App\Pekerjaan;
@@ -40,8 +60,7 @@ class PekerjaanController extends Controller
             'tgl_mulai' => 'required',
             'tgl_selesai'=>'required',
             'jumlah_target'=>'required',
-            'unt_target_id'=>'reqired',
-            'before_id'=>'required'
+            'unt_target_id'=>'reqired'
         ], $messages);
 
         if ($validator->fails()) {

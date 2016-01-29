@@ -20,4 +20,12 @@ class Pekerjaan extends Model
     	'user_pj_id',
     	'kegiatan_id',
     );
+    
+    public function kegiatan() {
+        return $this->belongsTo('\App\Kegiatan', 'kegiatan_id', 'id');
+    }
+    
+    public function satuan() {
+        return $this->belongsTo('\App\UnitTarget', 'unit_target_id', 'id');
+    }
 }

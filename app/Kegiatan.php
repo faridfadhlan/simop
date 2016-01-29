@@ -16,6 +16,11 @@ class Kegiatan extends Model
         return $this->belongsTo('\App\JenisWaktu', 'jenis_waktu_id', 'id');
     }
     
+    public function pekerjaans()
+    {
+        return $this->hasMany('App\Pekerjaan', 'kegiatan_id', 'id');
+    }
+    
     public function data_gantt_kegiatan() {
         return DB::select(
                 "SELECT

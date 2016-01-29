@@ -92,7 +92,7 @@ SIMMOP - Daftar Kegiatan
             <section class="table-layout animated fadeIn">
                 <div class="tray tray-center p25 va-t posr">
                     <div class="panel">
-                    <div id="mygantt" style='width:100%;height:400px'></div>
+                    <div id="mygantt" style='width:100%;height:460px'></div>
                     </div>
                 </div>
             </section>

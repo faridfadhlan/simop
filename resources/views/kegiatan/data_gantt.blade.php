@@ -4,8 +4,8 @@ var demo_tasks = {
     "data" : [
         @foreach($kegiatan as $k)
         {
-            "id": "{{ $k->id }}",
-            "text": "<a href='#' class='link'>{{ $k->text }}</a>",
+            "id": "{{ $k->parent==NULL?('1000'.$k->id):$k->id }}",
+            "text": "<a href='{{ URL::to(($k->parent!=NULL?'pekerjaan':'kegiatan').'/detail/'.$k->id) }}' class='link'>{{ $k->text }}</a>",
             "start_date": "{{ $k->start_date }}",
             "duration": "{{ $k->duration }}",
             "progress": {{ $k->progress }},

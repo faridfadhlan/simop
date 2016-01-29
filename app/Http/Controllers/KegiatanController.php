@@ -14,6 +14,17 @@ class KegiatanController extends Controller
         return view('kegiatan.index', ['kegiatans'=>$kegiatans]);
     }
     
+    public function detail($id) {
+        $kegiatan = \App\Kegiatan::findOrFail($id);
+        return view('kegiatan.detail', ['kegiatan'=>$kegiatan]);
+    }
+    
+    public function edit($id) {
+        $kegiatan = \App\Kegiatan::findOrFail($id);
+        $jenis_waktu = \App\JenisWaktu::lists('jenis_waktu', 'id');
+        return view('kegiatan.edit', ['kegiatan'=>$kegiatan, 'jenis_waktu'=>$jenis_waktu]);
+    }
+    
     public function tambah(){
         $kegiatan = new \App\Kegiatan;
         $jenis_waktu = \App\JenisWaktu::lists('jenis_waktu', 'id');
@@ -52,7 +63,7 @@ class KegiatanController extends Controller
     public function data_gantt() {
         $kegiatan = DB::select(
             "SELECT
-                CONCAT('1000',k.id) as id,
+                k.id as id,
                 k.nama as text,
                 (CASE WHEN (p.tgl_mulai IS NULL) 
                 THEN

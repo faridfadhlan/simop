@@ -30,11 +30,15 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('pekerjaan', 'PekerjaanController@index');
+    Route::get('pekerjaan/detail/{id}', 'PekerjaanController@detail');
     Route::get('kegiatan', 'KegiatanController@index');
+    Route::get('kegiatan/detail/{id}', 'KegiatanController@detail');
     Route::get('kegiatan/tambah', 'KegiatanController@tambah');
     Route::post('kegiatan/simpan', 'KegiatanController@simpan');
+    Route::get('kegiatan/edit/{id}', 'KegiatanController@edit');
     Route::get('kegiatan/data_gantt', 'KegiatanController@data_gantt');
     Route::get('pekerjaan/tambah', 'PekerjaanController@tambah');
+    Route::get('pekerjaan/edit/{id}', 'PekerjaanController@edit');
     Route::post('pekerjaan/simpan', 'PekerjaanController@simpan');
     Route::get('dashboard', 'DashboardController@index');
     Route::get('auth/login', 'Auth\AuthController@getLogin');
